@@ -24,8 +24,12 @@ jobs:
       run: echo "export const settings = {host:\"http://localhost3030\"} > src/config.js" 
     - name: Start BackEnd
       run: npm run start-be &
+    - name: Sleep 5 seconds 
+      run: sleep 5 seconds
     - name: Start FrontEnd
       run: npm run start-fe &
+    - name: Sleep 5 seconds 
+      run: sleep 5 seconds
     - name: Install Playright
       run:  npx playwright install     
     - name: Test UI interface
