@@ -25,5 +25,7 @@ jobs:
       run: npm run start-be &
     - name: Start FrontEnd
       run: npm run start-fe &
+    - name: Install Playwright Browsers
+      run: npx playwright install     
     - name: Test UI interface
       run: npm run test-ui
