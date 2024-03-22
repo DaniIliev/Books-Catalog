@@ -34,17 +34,18 @@ test('Verify if Register Button is visible', async ({page}) => {
     expect(isRegisterBtnVisible).toBe(true);
 })
 
-test('Login with valid credentials', async ({ page }) => {
-    await page.goto('http://localhost:3000/login');
-  
-    await page.fill('input[name="email"]', 'peter@abv.bg');
-    await page.fill('input[name="password"]', '123456');
-  
-    await page.click('input[type="submit"]');
-  
-    await page.$('a[href="/catalog"]');
-    expect(page.url()).toBe('http://localhost:3000/catalog');
-  });
+test('Check if user logged in successfully', async ({page}) => {
+    await page.goto(`${baseUrl}/login`)
+    await page.fill('input[name="email"]', 'peter@abv.bg')
+    await page.fill('input[name="password"]', '123456')
+
+
+    await page.click('input[type="submit"]'),
+    await page.waitForURL('http://localhost:3000/')
+
+
+    expect(page.url()).toBe(`${baseUrl}/`)
+})
 
 test('Check if the form is empty', async ({page}) => {
     await page.goto(`${baseUrl}/login`);
