@@ -41,10 +41,10 @@ test('Check if user logged in successfully', async ({page}) => {
 
 
     await page.click('input[type="submit"]'),
-    await page.waitForURL('http://localhost:3000/')
+    await page.waitForURL('http://localhost:3000/catalog')
 
 
-    expect(page.url()).toBe(`${baseUrl}/`)
+    expect(page.url()).toBe(`${baseUrl}/catalog`)
 })
 
 test('Check if the form is empty', async ({page}) => {
